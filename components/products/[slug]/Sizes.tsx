@@ -20,7 +20,7 @@ const Sizes = () => {
 			<h3 className="font-semibold mb-2 lg:text-lg">Select size</h3>
 			<ul className="flex items-center gap-2 flex-wrap">
 				{sizes.map((size, index) => (
-					<li onClick={() => handleProductSize(size)} key={index} className={`${productSize === size ? 'bg-red-400' : 'bg-neutral-800'} px-4 py-2 rounded-2xl hover:bg-red-400 duration-200 cursor-pointer lg:text-lg`}>
+					<li onClick={() => handleProductSize(size)} key={index} className={`${productSize === size ? 'bg-emerald-400' : 'bg-neutral-800'} px-4 py-2 rounded-2xl hover:bg-emerald-400 duration-200 cursor-pointer lg:text-lg`}>
 						{size}
 					</li>
 				))}

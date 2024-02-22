@@ -25,7 +25,7 @@ interface Product {
 }
 
 const Checkout = ({ product }: Product) => {
-	const { addItem, handleCartClick } = useShoppingCart();
+	const { addItem, handleCartClick, cartDetails, incrementItem } = useShoppingCart();
 	const { size, quantity } = useSelector((state: RootState) => state.product);
 	const dispatch = useDispatch();
 	const { toast } = useToast();
@@ -48,14 +48,14 @@ const Checkout = ({ product }: Product) => {
 	const productInfo = {
 		name: product.title,
 		description: product.description,
-		id: product.id,
+		id: `${product.id}-${size}`,
 		price: Number(product.price) * quantity,
 		currency: 'PLN',
 		image: product.images[0].url,
 		slug: product.slug,
 		bio: product.bio,
 		size,
-		quantity: quantity,
+		amountOfProduct: quantity,
 	};
 
 	const addToCart = () => {
@@ -67,7 +67,14 @@ const Checkout = ({ product }: Product) => {
 			});
 			return;
 		}
-		addItem(productInfo);
+
+		const existingCartProduct = Object.values(cartDetails ?? {}).find((item) => item.id === productInfo.id && item.size === size);
+		if (existingCartProduct) {
+			const updateQuantity = existingCartProduct.amountOfProduct + quantity;
+			incrementItem(existingCartProduct.id, updateQuantity);
+		} else {
+			addItem(productInfo);
+		}
 		handleCartClick();
 		dispatch(setSize(''));
 		dispatch(setQuantity(1));

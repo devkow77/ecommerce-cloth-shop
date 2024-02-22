@@ -11,7 +11,7 @@ export const productSlice = createSlice({
 			return { ...state, size: action.payload };
 		},
 		setQuantity: (state, action) => {
-			return { ...state, quantity: action.payload };
+			return { ...state, quantity: action.payload as number };
 		},
 	},
 });

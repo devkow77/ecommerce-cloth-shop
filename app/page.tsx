@@ -1,4 +1,4 @@
-import { Header, Help, Newsletter, Policity, Premieres } from '@/components/index';
+import { Header, Newsletter, Policity, Premieres } from '@/components/landing/index';
 
 export default function Home() {
 	return (
@@ -8,7 +8,6 @@ export default function Home() {
 				<Premieres />
 				<Policity />
 				<Newsletter />
-				<Help />
 			</div>
 		</main>
 	);

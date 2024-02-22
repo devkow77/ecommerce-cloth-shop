@@ -22,3 +22,18 @@ export interface Filter {
 	product: string;
 	sort: string;
 }
+
+// News Page
+
+export interface NewsInterface {
+	id: number;
+	slug: string;
+	image: {
+		url: string;
+	};
+	title: string;
+	content: {
+		html: string;
+	};
+	date: string;
+}
