@@ -1,22 +1,24 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import { GraphQLClient } from 'graphql-request';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API_KEY as string);
 
-export async function PremieresCarousel() {
+export const PremieresCarousel = async () => {
 	const { products }: any = await hygraph.request(`
 		query MyQuery {
-			products {
+			products(orderBy: publishedAt_ASC, first: 10) {
 				id
+				images {
+				url
+				}
+				price
 				slug
 				title
-				price
-				images {
-					url
-				}
 			}
-		}		
+		}
 	`);
 
 	return (
@@ -27,12 +29,16 @@ export async function PremieresCarousel() {
 						<CarouselItem key={index} className="basis-1/2 cursor-pointer sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
 							<div>
 								<Card className="rounded-full">
-									<CardContent className="relative aspect-square dark:bg-neutral-800 bg-slate-300 rounded-2xl">
-										<div className="absolute bottom-4 text-xs lg:text-sm text-white">
-											<h4>{premiere.title}</h4>
-											<p>{premiere.price}PLN</p>
-										</div>
-									</CardContent>
+									<Link href={`/products/${premiere.slug}`}>
+										<CardContent className="relative aspect-square rounded-2xl">
+											<Image src={premiere.images[0].url} alt={premiere.title} width={600} height={600} className="absolute top-0 left-0 w-full h-full object-cover object-center rounded-2xl " />
+											<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 rounded-2xl hover:bg-opacity-20 duration-200" />
+											<div className="absolute bottom-3 left-0 px-4">
+												<h1 className="font-semibold">{premiere.title}</h1>
+												<h2>Price: {Number(premiere.price).toPrecision(5)} PLN</h2>
+											</div>
+										</CardContent>
+									</Link>
 								</Card>
 							</div>
 						</CarouselItem>
@@ -40,4 +46,4 @@ export async function PremieresCarousel() {
 			</CarouselContent>
 		</Carousel>
 	);
-}
+};

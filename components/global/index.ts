@@ -6,5 +6,6 @@ import Navbar from './Navbar';
 import ProductCard from './ProductCard';
 import ShoppingCart from './ShoppingCart';
 import { ThemeToggle } from './ThemeToggle';
+import ShoppingBag from './ShoppingBag';
 
-export { Ad, DesktopNavigation, Footer, HamburgerMenu, Navbar, ProductCard, ShoppingCart, ThemeToggle };
+export { Ad, DesktopNavigation, Footer, HamburgerMenu, Navbar, ProductCard, ShoppingCart, ThemeToggle, ShoppingBag };

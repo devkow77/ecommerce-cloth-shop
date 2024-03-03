@@ -24,7 +24,7 @@ const isValidEmail = (email: string) => {
 	return emailRegex.test(email);
 };
 
-export function NewsletterForm() {
+export const NewsletterForm = () => {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -64,4 +64,4 @@ export function NewsletterForm() {
 			</form>
 		</Form>
 	);
-}
+};

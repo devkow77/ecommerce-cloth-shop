@@ -28,7 +28,7 @@ const isValidEmail = (email: string) => {
 	return emailRegex.test(email);
 };
 
-export function ContactForm() {
+export const ContactForm = () => {
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -51,7 +51,7 @@ export function ContactForm() {
 						<FormItem>
 							<FormLabel>Email</FormLabel>
 							<FormControl>
-								<Input placeholder="example@email.com" className="dark:bg-neutral-800" {...field} />
+								<Input placeholder="example@email.com" className="dark:bg-neutral-800 dark:placeholder:text-opacity-60" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -64,7 +64,7 @@ export function ContactForm() {
 						<FormItem>
 							<FormLabel>Message</FormLabel>
 							<FormControl>
-								<Textarea placeholder="Write a message..." className="resize-none" {...field} />
+								<Textarea placeholder="Write a message..." className="resize-none dark:placeholder:text-opacity-60" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
@@ -76,4 +76,4 @@ export function ContactForm() {
 			</form>
 		</Form>
 	);
-}
+};

@@ -14,7 +14,7 @@ const Introduction = ({ category, title, price }: Introduction) => {
 			<h2 className="text-neutral-300 lg:text-lg">{category.name}</h2>
 			<h1 className="font-extrabold max-w-lg mb-2 text-2xl lg:text-4xl">{title}</h1>
 			<h3 className="lg:text-lg">
-				Price: <span className="font-semibold">{Number(price).toPrecision(5)}</span> PLN <span className="px-2 py-1 bg-green-400 rounded-2xl text-sm ml-2">available</span>
+				Price: <span className="font-semibold">{Number(price).toPrecision(5)}</span> PLN <span className="px-3 py-2 bg-green-400 rounded-2xl text-sm ml-2 font-semibold">available</span>
 			</h3>
 		</section>
 	);

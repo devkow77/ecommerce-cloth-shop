@@ -6,7 +6,7 @@ interface ProductCard {
 	id: string;
 	slug: string;
 	title: string;
-	stripeApi: string;
+	stripeApi?: string;
 	price: string;
 	images: {
 		url: string;
@@ -14,7 +14,7 @@ interface ProductCard {
 	category: {
 		name: string;
 	};
-	sales: boolean;
+	sales?: boolean;
 }
 
 const ProductCard = ({ product }: { product: ProductCard }) => {

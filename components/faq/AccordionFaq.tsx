@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-export function AccordionFaq() {
+export const AccordionFaq = () => {
 	return (
 		<Accordion type="single" collapsible className="w-full my-4">
 			<AccordionItem value="item-1">
@@ -58,4 +58,4 @@ export function AccordionFaq() {
 			</AccordionItem>
 		</Accordion>
 	);
-}
+};

@@ -27,7 +27,10 @@ const Footer = () => {
 								<Link href="/women">Women</Link>
 							</li>
 							<li className="hover:text-emerald-400 duration-200">
-								<Link href="/sales">Sales</Link>
+								<Link href="/premieres">Premieres</Link>
+							</li>
+							<li className="hover:text-emerald-400 duration-200">
+								<Link href="/sizes">Sizes</Link>
 							</li>
 							<li className="hover:text-emerald-400 duration-200">
 								<Link href="/news">News</Link>

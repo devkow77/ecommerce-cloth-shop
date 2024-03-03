@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { PremieresCarousel } from '@/components/landing/index';
 
-function Premieres() {
+const Premieres = () => {
 	return (
 		<section>
 			<div className="flex items-end justify-between">
@@ -16,6 +16,6 @@ function Premieres() {
 			<PremieresCarousel />
 		</section>
 	);
-}
+};
 
 export default Premieres;

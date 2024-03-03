@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-function Header() {
+const Header = () => {
 	return (
 		<header>
 			<h2 className="text-3xl font-black text-slate-400 dark:text-white md:text-4xl lg:text-5xl xl:text-6xl">
@@ -37,6 +37,6 @@ function Header() {
 			</section>
 		</header>
 	);
-}
+};
 
 export default Header;

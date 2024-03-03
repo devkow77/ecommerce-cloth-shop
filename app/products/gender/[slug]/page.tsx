@@ -1,16 +1,15 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { ProductFilter, ProductList } from '@/components/products/index';
-import { Product, Filter } from '@/utils/Interfaces';
+import React, { useEffect, useState } from 'react';
+import { Filter, Product } from '@/utils/Interfaces';
+import { ProductFilter, ProductList } from '@/components/products';
 
-const Products = () => {
+const GenderProducts = ({ params: { slug } }: { params: { slug: string } }) => {
 	const [filter, setFilter] = useState<Filter>({
-		gender: '',
+		gender: `${slug}`,
 		product: '',
 		sort: 'price_ASC',
 	});
-
 	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
@@ -25,13 +24,13 @@ const Products = () => {
 		<main>
 			<div className="max-w-7xl mx-auto px-6 pt-8">
 				<h2 className="text-2xl font-black mb-4 md:text-3xl xl:text-4xl">
-					ALL <br /> <span className="text-emerald-400">PRODUCTS</span>
+					{slug.toUpperCase()} <br /> <span className="text-emerald-400">PRODUCTS</span>
 				</h2>
-				<ProductFilter filter={filter} setFilter={setFilter} gender={true} />
+				<ProductFilter filter={filter} setFilter={setFilter} gender={false} />
 				<ProductList products={products} />
 			</div>
 		</main>
 	);
 };
 
-export default Products;
+export default GenderProducts;

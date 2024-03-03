@@ -35,10 +35,8 @@ const ProductsCarousel = ({ products }: Products) => {
 								<Image src={product.images[0].url} alt="product image" width={300} height={300} className="absolute w-full h-full rounded-2xl object-cover object-center" />
 								<div className="absolute w-full h-full bg-black bg-opacity-60 rounded-2xl hover:bg-opacity-20 duration-200" />
 								<div className="absolute bottom-3 left-0 px-4">
-									<h1 className="font-extrabold">{product.title}</h1>
-									<h2>
-										<span className="font-semibold">Price: {Number(product.price).toPrecision(5)}</span> PLN
-									</h2>
+									<h1 className="font-semibold">{product.title}</h1>
+									<h2>Price: {Number(product.price).toPrecision(5)} PLN</h2>
 								</div>
 							</div>
 						</Link>
