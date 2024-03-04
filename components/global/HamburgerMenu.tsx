@@ -47,31 +47,34 @@ const MobileMenu = ({ toggle, setToggle }: { toggle: boolean; setToggle: Dispatc
 	return (
 		<motion.div variants={menuMotion} animate="visible" initial="hidden" className="fixed top-0 left-0 w-screen h-[100vh] bg-white dark:bg-neutral-900 flex items-center justify-center z-[39]">
 			<ul className="space-y-6 font-semibold dark:text-white text-slate-400">
-				<motion.li variants={itemMotion} className="">
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/">Home</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/products">Products</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
-					<Link href="/men">Men</Link>
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
+					<Link href="/products/gender/men">Men</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
-					<Link href="/women">Women</Link>
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
+					<Link href="/products/gender/women">Women</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
+					<Link href="/products/gender/unisex">Unisex</Link>
+				</motion.li>
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/premieres">Premieres</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/sizes">Sizes</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/news">News</Link>
 				</motion.li>
 				<motion.li variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/faq">Faq</Link>
 				</motion.li>
-				<motion.li variants={itemMotion} className="hover:text-emerald-400">
+				<motion.li onClick={() => setToggle(false)} variants={itemMotion} className="hover:text-emerald-400">
 					<Link href="/contact">Contact</Link>
 				</motion.li>
 			</ul>

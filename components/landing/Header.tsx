@@ -13,7 +13,7 @@ const Header = () => {
 					<Image src="/main.jpg" alt="woman with hoodie" width={1000} height={1000} className="absolute w-full h-full object-cover object-center rounded-2xl" />
 				</div>
 				<div className="relative col-span-2 bg-neutral-700 rounded-2xl sm:row-span-2">
-					<Link href="/products/men">
+					<Link href="/products/gender/men">
 						<Image src="/men.jpg" alt="men products section image" width={600} height={600} className="absolute w-full h-full object-cover object-center rounded-2xl" />
 						<div className="absolute w-full h-full bg-black bg-opacity-80 rounded-2xl flex items-center justify-center">
 							<h3 className="text-lg font-extrabold text-white sm:text-2xl xl:text-4xl">MEN</h3>
@@ -21,7 +21,7 @@ const Header = () => {
 					</Link>
 				</div>
 				<div className="relative col-span-2 bg-neutral-700 rounded-2xl sm:row-span-2">
-					<Link href="/products/women">
+					<Link href="/products/gender/women">
 						<Image src="/women.jpg" alt="women products section image" width={600} height={600} className="absolute w-full h-full object-cover rounded-2xl object-center" />
 						<div className="absolute w-full h-full bg-black bg-opacity-80 rounded-2xl flex items-center justify-center">
 							<h3 className="text-lg font-extrabold text-white sm:text-2xl xl:text-4xl">WOMEN</h3>

@@ -76,7 +76,7 @@ const ShoppingCart = () => {
 						<h2>
 							Total amount: <span className="font-semibold">{totalAmountOfProducts}</span> <br />
 							Quantity of products: <span className="font-semibold">{cartCount}</span> <br />
-							Total price: <span className="font-semibold">{Number(totalPrice).toPrecision(5)} PLN</span>
+							Total price: <span className="font-semibold">{totalPrice !== 0 ? Number(totalPrice).toPrecision(5) : 0} PLN</span>
 						</h2>
 						<div className="flex items-center gap-4 mt-6">
 							<Button variant={'buy'} disabled={cartCount === 0} onClick={handleCheckoutClick}>

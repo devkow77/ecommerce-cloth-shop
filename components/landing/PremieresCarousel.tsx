@@ -34,8 +34,8 @@ export const PremieresCarousel = async () => {
 											<Image src={premiere.images[0].url} alt={premiere.title} width={600} height={600} className="absolute top-0 left-0 w-full h-full object-cover object-center rounded-2xl " />
 											<div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 rounded-2xl hover:bg-opacity-20 duration-200" />
 											<div className="absolute bottom-3 left-0 px-4">
-												<h1 className="font-semibold">{premiere.title}</h1>
-												<h2>Price: {Number(premiere.price).toPrecision(5)} PLN</h2>
+												<h1 className="text-xs lg:text-base font-semibold">{premiere.title}</h1>
+												<h2 className="text-xs lg:text-sm">Price: {Number(premiere.price).toPrecision(5)} PLN</h2>
 											</div>
 										</CardContent>
 									</Link>

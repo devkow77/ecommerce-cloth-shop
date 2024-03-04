@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import axios from 'axios';
 
 const formSchema = z.object({
 	email: z
@@ -37,8 +37,25 @@ export const ContactForm = () => {
 		},
 	});
 
-	function onSubmit(values: z.infer<typeof formSchema>) {
-		console.log(values);
+	async function onSubmit(values: z.infer<typeof formSchema>) {
+		const data = {
+			email: values.email,
+			message: values.message,
+		};
+
+		const { data: response } = await axios.post(
+			'/api/contact',
+			{
+				data,
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		);
+
+		console.log(response);
 	}
 
 	return (

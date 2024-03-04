@@ -1,6 +1,7 @@
 import { ProductCard } from '@/components/global';
 import React from 'react';
 import { GraphQLClient } from 'graphql-request';
+import Link from 'next/link';
 
 const hygraph = new GraphQLClient(process.env.NEXT_PUBLIC_HYGRAPH_API_KEY as string);
 
@@ -57,6 +58,15 @@ const PremieresPage = async () => {
 							<ProductCard product={product} key={product.id} />
 						))}
 					</div>
+				</section>
+				<section>
+					<p className="text-sm leading-7 py-4 lg:text-base lg:leading-8">
+						If you wanna see all products in our shop check other section by clicking{' '}
+						<Link href="/products" className="font-semibold hover:text-emerald-500 duration-200">
+							here
+						</Link>
+						.
+					</p>
 				</section>
 			</div>
 		</main>

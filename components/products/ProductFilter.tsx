@@ -25,8 +25,8 @@ const products = {
 		{ name: 'Jacket', value: 'jacket' },
 	],
 	sort: [
-		{ name: 'Lowest - Highest', value: 'price_ASC' },
-		{ name: 'Highest - Lowest', value: 'price_DESC' },
+		{ name: 'Low - High', value: 'price_ASC' },
+		{ name: 'High - Low', value: 'price_DESC' },
 	],
 };
 
@@ -57,7 +57,7 @@ const ProductFilter = ({ filter, setFilter, gender }: ProductFilterProps) => {
 					</ul>
 				</div>
 				<div>
-					<h2 className="font-semibold mb-2">Sort</h2>
+					<h2 className="font-semibold mb-2">Sort By Price</h2>
 					<ul className="flex flex-col flex-wrap gap-2 text-sm lg:text-base lg:gap-2">
 						{products.sort.map(({ name, value }, index) => (
 							<li key={index} className={`${filter.sort === value ? 'text-emerald-400 font-semibold' : ''}  hover:text-emerald-400 duration-200 cursor-pointer`} onClick={() => setFilter({ ...filter, sort: value })}>

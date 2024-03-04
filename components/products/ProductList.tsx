@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductCard } from '@/components/global/index';
-import { Product, Filter } from '@/utils/Interfaces';
+import { Product } from '@/utils/Interfaces';
 import { Search, Shirt } from 'lucide-react';
 
 interface ProductListProps {
