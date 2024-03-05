@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-export async function POST(req: Request) {
-	const { email, message } = await req.json();
+export async function POST(req: NextRequest) {
+	const body = await req.json();
 
-	const user = process.env.user;
+	const user = process.env.NEXT_PUBLIC_USER_EMAIL as string;
 
 	const transporter = nodemailer.createTransport({
 		host: 'smtp.gmail.com',
@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 		secure: true,
 		auth: {
 			user: user,
-			pass: process.env.pass,
+			pass: process.env.NEXT_PUBLIC_USER_PASSWORD as string,
 		},
 	});
 
@@ -20,15 +20,16 @@ export async function POST(req: Request) {
 		const mail = await transporter.sendMail({
 			from: user,
 			to: 'kowalsky429@gmail.com',
-			replyTo: email,
-			subject: `Contact form submission (fendie shop) from ${email}`,
+			replyTo: body.email,
+			subject: `Contact form submission (fendie shop) from ${body.email}`,
 			html: `
-                <p>Email: ${email}</p>
-                <p>Message: ${message}</p>
+                <p>Email: ${body.email}</p>
+                <p>Message: ${body.message}</p>
             `,
 		});
 
-		console.log('Message sent: ', mail.messageId);
+		console.log(`Message sent: ${mail.messageId}`);
+		return NextResponse.json({ error: 'Successfully sent email' });
 	} catch (error) {
 		console.log(`/API/CONTACT: ${error}`);
 		return NextResponse.json({ error: 'Failed to send email' });

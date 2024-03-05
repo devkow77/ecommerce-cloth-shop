@@ -5,8 +5,8 @@ import Image from 'next/image';
 const Header = () => {
 	return (
 		<header>
-			<h2 className="text-3xl font-black text-slate-400 dark:text-white md:text-4xl lg:text-5xl xl:text-6xl">
-				FENDIE <br /> <span className="text-slate-300 dark:text-emerald-400">BEST</span> CLOTHES <br /> IN NEW YORK{' '}
+			<h2 className="text-3xl font-black text-white md:text-4xl lg:text-5xl xl:text-6xl">
+				FENDIE <br /> <span className="text-emerald-400">BEST</span> CLOTHES <br /> IN NEW YORK{' '}
 			</h2>
 			<section className="grid grid-cols-4 grid-rows-4 gap-4 h-[25rem] rounded-2xl mt-4 mb-8 lg:h-[28rem]">
 				<div className="relative col-span-4 row-span-3 bg-neutral-700 rounded-2xl overflow-hidden sm:col-span-2 sm:row-span-4">

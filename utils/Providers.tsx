@@ -17,7 +17,7 @@ const Providers = ({ children, ...props }: ThemeProviderProps) => {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<NextThemesProvider {...props} attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+			<NextThemesProvider {...props} attribute="class" defaultTheme="dark">
 				<CartProvider
 					mode="payment"
 					cartMode="client-only"

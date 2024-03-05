@@ -8,6 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import axios from 'axios';
+import { useToast } from '@/components/ui/use-toast';
 
 const formSchema = z.object({
 	email: z
@@ -29,6 +30,8 @@ const isValidEmail = (email: string) => {
 };
 
 export const ContactForm = () => {
+	const { toast } = useToast();
+
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -38,24 +41,30 @@ export const ContactForm = () => {
 	});
 
 	async function onSubmit(values: z.infer<typeof formSchema>) {
-		const data = {
-			email: values.email,
-			message: values.message,
-		};
-
-		const { data: response } = await axios.post(
-			'/api/contact',
-			{
-				data,
-			},
-			{
-				headers: {
-					'Content-Type': 'application/json',
+		try {
+			await axios.post(
+				'/api/contact',
+				{
+					email: values.email,
+					message: values.message,
 				},
-			}
-		);
+				{
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
 
-		console.log(response);
+			toast({
+				title: 'Success!',
+				description: 'Your message has been sent successfully.',
+				variant: 'successfull',
+			});
+
+			form.reset();
+		} catch (error) {
+			console.log(error);
+		}
 	}
 
 	return (
@@ -87,8 +96,8 @@ export const ContactForm = () => {
 						</FormItem>
 					)}
 				/>
-				<Button type="submit" className="w-full">
-					Submit
+				<Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+					{form.formState.isSubmitting ? 'Sending...' : 'Send'}
 				</Button>
 			</form>
 		</Form>

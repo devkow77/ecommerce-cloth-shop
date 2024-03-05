@@ -28,7 +28,7 @@ export const PremieresCarousel = async () => {
 					products.map((premiere: any, index: number) => (
 						<CarouselItem key={index} className="basis-1/2 cursor-pointer sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
 							<div>
-								<Card className="rounded-full">
+								<Card className="rounded-2xl">
 									<Link href={`/products/${premiere.slug}`}>
 										<CardContent className="relative aspect-square rounded-2xl">
 											<Image src={premiere.images[0].url} alt={premiere.title} width={600} height={600} className="absolute top-0 left-0 w-full h-full object-cover object-center rounded-2xl " />

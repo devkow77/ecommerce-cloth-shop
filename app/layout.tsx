@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${montserrat.className} dark:bg-neutral-900 dark:text-white bg-slate-100 text-slate-400`}>
+			<body className={`${montserrat.className} dark:bg-neutral-900 dark:text-white bg-slate-300 text-white`}>
 				<Providers>
 					<Ad>
 						Unlock savings now! Enter code <span className="font-semibold">CODE10</span> at checkout before 01.12.2024 to enjoy an exclusive 10% discount on your purchase. Don't miss out on this limited-time offer!
